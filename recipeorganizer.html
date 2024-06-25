@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Organizer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: linear-gradient(to bottom, #ff69b4, #ff99cc);
+            background-attachment: fixed;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #ccc;
+        }
+        .header h1 {
+            margin: 0;
+        }
+        .header button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .header button:hover {
+            background-color: #3e8e41;
+        }
+        .recipe-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .recipe-list li {
+            padding: 20px;
+            border-bottom: 1px solid #ccc;
+        }
+        .recipe-list li:last-child {
+            border-bottom: none;
+        }
+        .recipe-image {
+            width: 100px;
+            height: 100px;
+            margin-right: 20px;
+            border-radius: 10px;
+        }
+        .recipe-name {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .recipe-description {
+            font-size: 14px;
+            color: #666;
+        }
+        .add-recipe-btn {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .add-recipe-btn:hover {
+            background-color: #3e8e41;
+        }
+        .recipe-form {
+            padding: 20px;
+        }
+        .recipe-form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .recipe-form input, .recipe-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+        }
+        .recipe-form button[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .recipe-form button[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Recipe Organizer</h1>
+            <button id="add-recipe-btn">Add Recipe</button>
+        </div>
+        <ul class="recipe-list" id="recipe-list">
+            <!-- recipes will be displayed here -->
+        </ul>
+        <div class="recipe-form" id="recipe-form">
+            <h2>Add Recipe</h2>
+            <form>
+                <label for="recipe-name">Recipe Name:</label>
+                <input type="text" id="recipe-name" name="recipe-name">
+                <label for="recipe-description">Recipe Description:</label>
+                <textarea id="recipe-description" name="recipe-description"></textarea>
+                <label for="recipe-image">Recipe Image:</label>
+                <input type="file" id="recipe-image" name="recipe-image">
+                <label for="recipe-instructions">Recipe Instructions:</label>
+                <textarea id="recipe-instructions" name="recipe-instructions"></textarea>
+                <button type="submit">Add Recipe</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // get recipes from database ( simulate for now )
+        const recipes = [
+            {
+                id: 1,
+                name: "Chicken Fajitas",
+                description: "Sizzling chicken and bell peppers served with warm flour tortillas.",
+                image: "https://images.pexels.com/photos/164
